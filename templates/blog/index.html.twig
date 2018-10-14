@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello, World!{% endblock %}
+
+
+{% block body %}
+    <p>{{ name }}</p>
+
+
+    <div>
+        {% for ar in array %}
+        <p>{{ ar }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
