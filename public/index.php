@@ -1,39 +1,151 @@
-<?php
+<!DOCTYPE html>
+<html lang="en" >
 
-use App\Kernel;
-use Symfony\Component\Debug\Debug;
-use Symfony\Component\Dotenv\Dotenv;
-use Symfony\Component\HttpFoundation\Request;
+<head>
+    <meta charset="UTF-8">
+    <title>Terskol-House</title>
 
-require __DIR__.'/../vendor/autoload.php';
 
-// The check is to ensure we don't use .env in production
-if (!isset($_SERVER['APP_ENV']) && !isset($_ENV['APP_ENV'])) {
-    if (!class_exists(Dotenv::class)) {
-        throw new \RuntimeException('APP_ENV environment variable is not defined. You need to define environment variables for configuration or add "symfony/dotenv" as a Composer dependency to load variables from a .env file.');
-    }
-    (new Dotenv())->load(__DIR__.'/../.env');
-}
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 
-$env = $_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? 'dev';
-$debug = (bool) ($_SERVER['APP_DEBUG'] ?? $_ENV['APP_DEBUG'] ?? ('prod' !== $env));
+    <link rel="stylesheet" href="css/style.css">
 
-if ($debug) {
-    umask(0000);
 
-    Debug::enable();
-}
+</head>
 
-if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-}
+<body>
 
-if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
-    Request::setTrustedHosts(explode(',', $trustedHosts));
-}
+<div class="cont s--inactive">
+    <!-- cont inner start -->
+    <div class="cont__inner">
+        <!-- el start -->
+        <div class="el">
+            <div class="el__overflow">
+                <div class="el__inner">
+                    <div class="el__bg"></div>
+                    <div class="el__preview-cont">
+                        <h2 class="el__heading">Апартаменты</h2>
+                    </div>
+                    <div class="el__content">
+                        <div class="el__text">Whatever</div>
+                        <div class="el__close-btn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="el__index">
+                <div class="el__index-back">1</div>
+                <div class="el__index-front">
+                    <div class="el__index-overlay" data-index="1">1</div>
+                </div>
+            </div>
+        </div>
+        <!-- el end -->
+        <!-- el start -->
+        <div class="el">
+            <div class="el__overflow">
+                <div class="el__inner">
+                    <div class="el__bg"></div>
+                    <div class="el__preview-cont">
+                        <h2 class="el__heading">Хостел</h2>
+                    </div>
+                    <div class="el__content">
+                        <div class="el__text">Whatever</div>
+                        <div class="el__close-btn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="el__index">
+                <div class="el__index-back">2</div>
+                <div class="el__index-front">
+                    <div class="el__index-overlay" data-index="2">2</div>
+                </div>
+            </div>
+        </div>
+        <!-- el end -->
+        <!-- el start -->
+        <div class="el">
+            <div class="el__overflow">
+                <div class="el__inner">
+                    <div class="el__bg"></div>
+                    <div class="el__preview-cont">
+                        <h2 class="el__heading">Такси</h2>
+                    </div>
+                    <div class="el__content">
+                        <div class="el__text">Whatever</div>
+                        <div class="el__close-btn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="el__index">
+                <div class="el__index-back">3</div>
+                <div class="el__index-front">
+                    <div class="el__index-overlay" data-index="3">3</div>
+                </div>
+            </div>
+        </div>
+        <!-- el end -->
+        <!-- el start -->
+        <div class="el">
+            <div class="el__overflow">
+                <div class="el__inner">
+                    <div class="el__bg"></div>
+                    <div class="el__preview-cont">
+                        <h2 class="el__heading">О нас</h2>
+                    </div>
+                    <div class="el__content">
+                        <div class="el__text">Whatever</div>
+                        <div class="el__close-btn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="el__index">
+                <div class="el__index-back">4</div>
+                <div class="el__index-front">
+                    <div class="el__index-overlay" data-index="4">4</div>
+                </div>
+            </div>
+        </div>
+        <!-- el end -->
+        <!-- el start -->
+        <div class="el">
+            <div class="el__overflow">
+                <div class="el__inner">
+                    <div class="el__bg"></div>
+                    <div class="el__preview-cont">
+                        <h2 class="el__heading">Приэльбрусье</h2>
+                    </div>
+                    <div class="el__content">
+                        <div class="el__text">Whatever</div>
+                        <div class="el__close-btn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="el__index">
+                <div class="el__index-back">5</div>
+                <div class="el__index-front">
+                    <div class="el__index-overlay" data-index="5">5</div>
+                </div>
+            </div>
+        </div>
+        <!-- el end -->
+    </div>
+    <!-- cont inner end -->
+</div>
 
-$kernel = new Kernel($env, $debug);
-$request = Request::createFromGlobals();
-$response = $kernel->handle($request);
-$response->send();
-$kernel->terminate($request, $response);
+<!--<a href="https://dribbble.com/shots/2802024-Satellite-Website-Prototype" target="_blank" class="icon-link">-->
+<!--    <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">-->
+<!--</a>-->
+<!--<a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">-->
+<!--    <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">-->
+<!--</a>-->
+<!---->
+
+
+<script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
