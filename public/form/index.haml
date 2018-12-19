@@ -1,0 +1,121 @@
+%div#settings{:ontouchstart => true}
+	%input.nav{:type => "radio", :name => "nav", :checked => true}
+	%span.nav Profile
+	%input.nav{:type => "radio", :name => "nav"}
+	%span.nav Account
+	%input.nav{:type => "radio", :name => "nav"}
+	%span.nav Privacy
+	%input.nav{:type => "radio", :name => "nav"}
+	%span.nav Advanced
+	%main.content
+		%section#profile
+			%form
+				%ul
+					%li.large.padding.avatar
+						%span{:style => "background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg');"}
+						%div
+							%fieldset.material-checkbox
+								%div
+									%input{:type => "checkbox", :checked => true}
+									%div.check
+										%span
+											%svg{:viewBox => "0 0 24 24"}
+												%g
+													%line{:x1 => "4.5", :x2 => "9.24", :y1 => "12.5", :y2 => "17.24"}
+													%line{:x1 => "9.24", :x2 => "19.76", :y1 => "17.24", :y2 => "6.73"}
+												%g
+													%line{:x1 => "4.5", :x2 => "9.24", :y1 => "12.5", :y2 => "17.24"}
+													%line{:x1 => "9.24", :x2 => "19.76", :y1 => "17.24", :y2 => "6.73"}
+										%label Use Gravatar
+							%fieldset.material-button
+								%div
+									%button Select File
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true, :value => "Gabrielle Wee"}
+								%label Name
+								%hr
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true}
+								%label Location
+								%hr
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true}
+								%label Title
+								%hr
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true}
+								%label Website
+								%hr
+					%li.large
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true}
+								%label About
+								%hr
+					%li.large.padding
+						%fieldset.material-button.center
+							%div
+								%input.save{:type => "submit", :value => "Save"}
+		%section#account
+			%form
+				%ul
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true, :value => "email@domain.com"}
+								%label Email
+								%hr
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "text", :required => true}
+								%label Username
+								%hr
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "password", :required => true}
+								%label Password
+								%hr
+					%li
+						%fieldset.material
+							%div
+								%input{:type => "password", :required => true}
+								%label Confirm Password
+								%hr
+					%li.padding
+						%fieldset.material-button
+							%div
+								%button.connect.gh.connected
+									%span Unlink Github Account
+					%li.padding
+						%fieldset.material-button
+							%div
+								%button.connect.tw
+									%span Link Twitter Account
+					%li.padding
+						%fieldset.material-button
+							%div
+								%button.connect.fb
+									%span Link Facebook Account
+					%li.padding
+						%fieldset.material-button
+							%div
+								%button.connect.li
+									%span Link LinkedIn Account
+					%li.large.padding
+						%fieldset.material-button.center
+							%div
+								%input.save{:type => "submit", :value => "Save"}
+		%section#privacy.upcoming
+			%h1 Coming&nbsp;soon!
+		%section#advanced.upcoming
+			%h1 Coming&nbsp;soon!

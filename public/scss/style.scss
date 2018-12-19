@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: local('Gilroy Light'), local('Gilroy-Light'),
+  url("../fonts/Gilroy-Light.otf") format("opentype"),
+  url('../fonts/Gilroylight.woff2') format('woff2'),
+  url('../fonts/Gilroylight.woff') format('woff'),
+  url('../fonts/Gilroylight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: local('Gilroy ExtraBold'), local('Gilroy-ExtraBold'),
+  url("../fonts/Gilroy-ExtraBold.otf") format("opentype"),
+  url('../fonts/Gilroyextrabold.woff2') format('woff2'),
+  url('../fonts/Gilroyextrabold.woff') format('woff'),
+  url('../fonts/Gilroyextrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -6,11 +28,15 @@
 
 body {
   background: #1f1f1f;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: 'Gilroy', 'Open sans', Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  &.no-scroll{
+    overflow: hidden;
+  }
 }
 
 $vertPad: 80px;
-$sidePad: 70px;
+$sidePad: 20px;
 
 $numOfEls: 5;
 $elMrg: 1%;
@@ -29,6 +55,13 @@ $closeBtnLineDelay: 0.15s;
 $fullExpandAT: $moveAT + $expandDelay + $expandAT;
 $contentFadeinAT: 0.5s;
 
+@mixin translate3d0 {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
 @mixin elHover {
   .el:hover & {
     @content;
@@ -53,18 +86,114 @@ $contentFadeinAT: 0.5s;
   }
 }
 
+@mixin frontTextFlying {
+  overflow: hidden;
+  position: relative;
+  transform: translate3d(0, 100%, 0);
+  transition: transform $indexHoverAT 0.1s;
+  color: transparent;
+
+  &:after {
+    content: attr(data-index);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    transform: translate3d(0, -100%, 0);
+    transition: transform $indexHoverAT 0.1s;
+  }
+  @include elHover {
+    @include translate3d0;
+
+    &:after {
+      @include translate3d0;
+    }
+  }
+}
+
+@mixin icon($path) {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 20px;
+    background: url($path) 0 0 no-repeat;
+    background-size: contain;
+    transform: translate3d(0, -100%, 0);
+  }
+  @include elHover() {
+    &:before {
+      @include translate3d0;
+    }
+  }
+}
+
+a {
+  color: #ffffff;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.header{
+  display: flex;
+  align-items: baseline;
+  padding: 20px 20px 0;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}
+
+.room-status {
+  width: 33.333333%;
+  font-weight: 800;
+  font-size: 1.4em;
+  &.yes {
+    color: #23dc5e;
+  }
+}
+
+h1 {
+  font-weight: 800;
+  width: 33.333333%;
+  text-align: center;
+}
+
+.call-us{
+  text-align: right;
+  width: 33.333333%;
+  a{
+    font-weight: 800;
+    font-size: 1.4em;
+    text-decoration: none;
+
+  }
+}
+
 .cont {
   position: relative;
   overflow: hidden;
   height: 100vh;
-  padding: $vertPad $sidePad;
+  padding: $vertPad $sidePad $sidePad;
+  min-height: 632px;
+  max-width: 1400px;
+  margin: auto;
 
   &__inner {
     position: relative;
     height: 100%;
-    
+
     &:hover .el__bg:after {
       opacity: 1;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    height: 1200px;
+    &__inner:hover .el__bg:after {
+      opacity: 0;
     }
   }
 }
@@ -72,7 +201,7 @@ $contentFadeinAT: 0.5s;
 .el {
   $elW: (100% - $elMrg * ($numOfEls - 1)) / $numOfEls;
   $elMrgRel: percentage($elMrg / $elW);
-  
+
   position: absolute;
   left: 0;
   top: 0;
@@ -81,11 +210,12 @@ $contentFadeinAT: 0.5s;
   background: #252525;
   transition: transform $moveAT $expandAT, width $expandAT, opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT;
   will-change: transform, width, opacity;
+  color: #ffffff;
 
   &:not(.s--active) {
     cursor: pointer;
   }
-  
+
   &__overflow {
     overflow: hidden;
     position: relative;
@@ -99,7 +229,7 @@ $contentFadeinAT: 0.5s;
     transition: transform $initAT;
 
     @include contInactive {
-      transform: translate3d(0,100%,0);
+      transform: translate3d(0, 100%, 0);
     }
   }
 
@@ -120,20 +250,20 @@ $contentFadeinAT: 0.5s;
       background-size: cover;
       background-position: center center;
       transition: transform $initAT;
-      transform: translate3d(0,0,0) scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
 
       @include contInactive {
-        transform: translate3d(0,-100%,0) scale(1.2);
+        transform: translate3d(0, -100%, 0) scale(1.2);
       }
 
       @include elActive {
         transition: transform $bgScaleAT;
       }
     }
-    
+
     &:after {
       $opacityAT: 0.5s;
-      
+
       content: "";
       z-index: 1;
       position: absolute;
@@ -141,47 +271,44 @@ $contentFadeinAT: 0.5s;
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.6);
       opacity: 0;
       transition: opacity $opacityAT;
-      
+
       @include contElActive {
         transition: opacity $opacityAT $fullExpandAT;
         opacity: 1 !important;
       }
     }
   }
-  
+
   &__preview-cont {
     z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 30%;
     width: 100%;
-    height: 100%;
+    text-align: center;
     transition: all 0.3s $fullInitAT - 0.2s;
-    
+
     @include contInactive {
       opacity: 0;
       transform: translateY(10px);
     }
-    
+
     @include contElActive {
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.5s;
     }
   }
-  
+
   &__heading {
     color: #fff;
     text-transform: uppercase;
     font-size: 18px;
   }
-  
+
   &__content {
     z-index: -1;
     position: absolute;
@@ -193,41 +320,141 @@ $contentFadeinAT: 0.5s;
     opacity: 0;
     pointer-events: none;
     transition: all 0.1s;
-    
+    overflow: auto;
+
     @include elActive {
       z-index: 2;
       opacity: 1;
       pointer-events: auto;
       transition: all $contentFadeinAT $fullExpandAT;
     }
+
+    &-left {
+      float: left;
+      width: 55%;
+      box-sizing: border-box;
+      padding-right: 10px;
+    }
+    &-right {
+      float: right;
+      width: 45%;
+    }
   }
-  
+
   &__text {
     text-transform: uppercase;
-    font-size: 40px;
+    font-size: 32px;
     color: #fff;
+    margin-bottom: 10px;
   }
-  
+
+  &__description {
+    padding: 10px;
+    background: rgba(31, 31, 31, .75);
+    margin-bottom: 10px;
+  }
+
+  &__price-block {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  &__order {
+    &-block {
+      padding: 10px;
+      background: rgba(31, 31, 31, .75);
+    }
+    &-header {
+      font-weight: 800;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    &-choose {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+  &__tab-navs, &__order-tabs {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__tab-nav {
+    flex-grow: 1;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    &.is-active {
+      pointer-events: none;
+      border-bottom: 2px solid;
+      font-weight: 800;
+    }
+  }
+
+  &__order-tab{
+    flex-grow: 1;
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+    transition: all 450ms ease-out;
+    -webkit-transform: translateY(50%) translateZ(0);
+    transform: translateY(50%) translateZ(0);
+    &.is-active {
+      display: block;
+      -webkit-transform: translateY(0) translateZ(0);
+      transform: translateY(0) translateZ(0);
+    }
+  }
+
+  &__phone{
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  &__whatsupp{
+    font-size: 18px;
+  }
+
+  &__photo-thumb{
+    margin-top: 4px;
+  }
+
+  &__photo-slide, &__photo-thumb-slide{
+    cursor: pointer;
+    &:focus {
+      outline:none
+    }
+  }
+
+  &__photo-thumb-slide{
+    margin-right: 2px;
+    border: 1px solid #1f1f1f;
+    box-sizing: border-box;
+  }
+
   &__close-btn {
-    
     z-index: -1;
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     opacity: 0;
     pointer-events: none;
     transition: all 0s $closeBtnAT + $closeBtnLineDelay;
     cursor: pointer;
-    
+
     @include elActive {
       z-index: 5;
       opacity: 1;
       pointer-events: auto;
       transition: all 0s $fullExpandAT;
     }
-    
+
     &:before,
     &:after {
       content: "";
@@ -240,113 +467,132 @@ $contentFadeinAT: 0.5s;
       background: #fff;
       opacity: 0;
       transition: opacity 0s;
-      
+
       @include elActive {
         opacity: 1;
       }
     }
-    
+
     &:before {
       transform: rotate(45deg) translateX(100%);
-      
+
       @include elActive {
-        transition: all $closeBtnAT $fullExpandAT cubic-bezier(.72,.09,.32,1.57);
+        transition: all $closeBtnAT $fullExpandAT cubic-bezier(.72, .09, .32, 1.57);
         transform: rotate(45deg) translateX(0);
       }
     }
-    
+
     &:after {
       transform: rotate(-45deg) translateX(100%);
-      
+
       @include elActive {
-        transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(.72,.09,.32,1.57);
+        transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(.72, .09, .32, 1.57);
         transform: rotate(-45deg) translateX(0);
       }
     }
   }
-  
+
   &__index {
     overflow: hidden;
     position: absolute;
     left: 0;
-    bottom: $vertPad * -1;
+    bottom: 0;
     width: 100%;
     height: 100%;
     min-height: 250px;
     text-align: center;
-    font-size: 100vw / $numOfEls;
+    //  font-size: 100vw / $numOfEls;
     line-height: 0.85;
     font-weight: bold;
     transition: transform $indexHoverAT, opacity $moveAT/2 $expandAT + $expandDelay + $moveAT;
-    transform: translate3d(0,1vw,0);
-    
+    transform: translate3d(0, 1vw, 0);
+
     @include elHover {
-      transform: translate3d(0,0,0);
+      @include translate3d0;
     }
-    
+
     @include contElActive {
       transition: transform $indexHoverAT, opacity $moveAT/2;
       opacity: 0;
     }
-    
+
     &-back,
     &-front {
       position: absolute;
       left: 0;
       bottom: 0;
       width: 100%;
+      max-height: calc(70% + 6px);
+      height: 100%;
+      padding: 28px 10px 10px;
+      line-height: 1.2;
     }
-   
+
     &-back {
-      color: #2f3840;
+      color: #1f1f1f;
+      background: rgba(31, 31, 31, 0.76);
       opacity: 0;
       transition: opacity $indexHoverAT/2 $indexHoverAT/2;
-      
+
       @include elHover {
         transition: opacity $indexHoverAT/2;
         opacity: 1;
       }
     }
-    
-    &-overlay {
-      overflow: hidden;
-      position: relative;
-      transform: translate3d(0,100%,0);
-      transition: transform $indexHoverAT 0.1s;
-      color: transparent;
-      
-      &:before {
-        content: attr(data-index);
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        color: #fff;
-        transform: translate3d(0,-100%,0);
-        transition: transform $indexHoverAT 0.1s;
-      }
-      
-      @include elHover {
-        transform: translate3d(0,0,0);
-        
-        &:before {
-          transform: translate3d(0,0,0);
-        }
-      }
+
+    &-front {
+      color: #ffffff;
     }
+
+    &-overlay {
+      @include frontTextFlying();
+    }
+  }
+
+  &__adv-block {
+    margin-top: 15px;
+    text-align: left;
+  }
+
+  &__advantage {
+    @include frontTextFlying();
+    @include icon('../img/icons/icons8-checkmark-52.png');
+    font-weight: 300;
+    line-height: 1.2;
+    &:after {
+      padding-left: 22px;
+    }
+  }
+
+  &__price, &__more, &__order {
+    @include frontTextFlying();
+    margin-top: 15px;
+  }
+  &__more, &__order {
+    &:after {
+      text-decoration: underline;
+    }
+    &:hover:after  {
+      text-decoration: none;
+    }
+  }
+  &__more {
+    float: left;
+  }
+  &__order {
+    float: right;
   }
 
   @for $i from 0 to $numOfEls {
     &:nth-child(#{$i + 1}) {
       $x: (100% + $elMrgRel) * $i;
-      transform: translate3d($x,0,0);
+      transform: translate3d($x, 0, 0);
       transform-origin: $x + 50% 50%;
-      
+
       @include contElActive {
-        
+
         &:not(.s--active) {
-          transform: scale(0.5) translate3d($x,0,0);
+          transform: scale(0.5) translate3d($x, 0, 0);
           opacity: 0;
           transition: transform $fadeoutAT, opacity $fadeoutAT;
         }
@@ -357,18 +603,18 @@ $contentFadeinAT: 0.5s;
       }
 
       .el__bg {
-        transform: translate3d($elW * $i * -1,0,0);
+        transform: translate3d($elW * $i * -1, 0, 0);
 
         &:before {
           transition-delay: 0.1s * $i;
-          background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-#{$i + 3}.jpg');
+          background-image: url('../img/menu/menu-#{$i + 1}.jpg');
         }
       }
     }
   }
-  
+
   &:hover {
-    
+
     .el__bg:after {
       opacity: 0;
     }
@@ -377,11 +623,11 @@ $contentFadeinAT: 0.5s;
   &.s--active {
     z-index: 1;
     width: 100%;
-    transform: translate3d(0,0,0);
+    @include translate3d0;
     transition: transform $moveAT, width $expandAT $moveAT + $expandDelay, z-index 0s;
 
     .el__bg {
-      transform: translate3d(0,0,0);
+      @include translate3d0;
       transition: transform $moveAT;
 
       &:before {
@@ -390,6 +636,143 @@ $contentFadeinAT: 0.5s;
       }
     }
   }
+  &__whatsapp, &__email {
+    a {
+      text-decoration: none;
+
+      b {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 1260px){
+    &__more, &__order {
+      float: none;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+  @media all and (max-width: 1160px){
+    &__preview-cont {
+      top: 20%;
+    }
+    &__index-back, &__index-front {
+      max-height: calc(80% + 6px);
+    }
+    &__advantage {
+      color: unset;
+      margin-bottom: 4px;
+      opacity: 0;
+      -webkit-transition: 400ms;
+      -moz-transition: 400ms;
+      -ms-transition: 400ms;
+      -o-transition: 400ms;
+      transition: 400ms;
+      &:before {
+        width: 14px;
+        height: 16px;
+      }
+      &:after {
+        display: none;
+      }
+      .el:hover & {
+        opacity: 1;
+      }
+    }
+
+  }
+  @media all and (max-width: 1024px) {
+    width: 49%;
+    height: calc(33.33333% - 16px);
+    text-shadow: 0 0 4px #000;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -ms-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+    &:hover .el__index-back{
+      opacity: .6;
+    }
+    &.s--active{
+      position: fixed;
+      height: 100%;
+      top: 80px;
+      transform: translate3d(0, 0, 0)!important;
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      -ms-transition: 300ms;
+      -o-transition: 300ms;
+      transition: 300ms;    }
+    &:nth-child(1) {
+      transform: translate3d(0%, 208%, 0);
+    }
+    &:nth-child(2) {
+      transform: translate3d(0, 0, 0);
+      width: 100%;
+    }
+    &:nth-child(3) {
+      transform: translate3d(0, 104%, 0);
+    }
+    &:nth-child(4) {
+      transform: translate3d(104%, 104%, 0);
+    }
+    &:nth-child(5) {
+      transform: translate3d(104%, 208%, 0);
+    }
+    @for $i from 0 to $numOfEls {
+      &:nth-child(#{$i + 1}) {
+        .el__bg {
+          transform: translate3d(0, 0, 0);
+          width: 100%;
+        }
+      }
+    }
+    &__preview-cont {
+        top: 24px;
+    }
+    &__index-back, &__index-front {
+      max-height: 100%;
+      padding-top: 56px;
+    }
+    &__index {
+      @include translate3d0;
+    }
+    &__index-back {
+      transition: opacity 0.25s;
+      opacity: .6;
+    }
+    &__index-overlay {
+      @include translate3d0;
+      &:after{
+        @include translate3d0;
+      }
+    }
+    &__advantage {
+      opacity: 1;
+      @include translate3d0;
+      &:before {
+        @include translate3d0;
+      }
+    }
+    &__price, &__more, &__order {
+      @include translate3d0;
+      &:after {
+        @include translate3d0;
+      }
+    }
+    &__content-left, &__content-right {
+      width: 100%;
+    }
+    &__content-left{
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
 }
 
 .icon-link {
@@ -406,5 +789,70 @@ $contentFadeinAT: 0.5s;
   &--twitter {
     left: auto;
     right: 5px;
+  }
+}
+
+@media all and (max-width: 648px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  h1 {
+    width: 100%;
+    order: 1;
+    margin-bottom: 10px;
+  }
+  .room-status,
+  .call-us {
+    width: 50%;
+    order: 2;
+  }
+  .cont {
+    padding-top: 110px;
+  }
+  .el{
+    &.s--active {
+      position: fixed;
+      z-index: 99999;
+      top: 0;
+    }
+    &__close-btn{
+      &:before, &:after {
+        height: 2px;
+      }
+    }
+    &__content {
+      padding: 20px;
+    }
+  }
+}
+@media all and (max-width: 479px) {
+  .header {
+    padding: 15px 15px 0;
+  }
+  .call-us {
+    font-size: 13px;
+  }
+  .room-status {
+    font-size: 20px;
+  }
+  .cont {
+    padding: 110px 15px 15px;
+    height: 2190px;
+  }
+  .el {
+    width: 100%;
+    height: 400px;
+    &:nth-child(1) {
+      transform: translate3d(0, 208%, 0);
+    }
+    &:nth-child(4) {
+      transform: translate3d(0, 312%, 0);
+    }
+    &:nth-child(5) {
+      transform: translate3d(0, 416%, 0);
+    }
+    &__content {
+      padding: 15px;
+    }
   }
 }
