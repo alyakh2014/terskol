@@ -42,6 +42,8 @@ a {
   font-size: 1.4em; }
   .room-status.yes {
     color: #23dc5e; }
+  .room-status.no {
+    color: #ff081f; }
 
 h1 {
   font-weight: 800;
@@ -238,6 +240,22 @@ h1 {
     cursor: pointer; }
     .el__photo-slide:focus, .el__photo-thumb-slide:focus {
       outline: none; }
+  .el__arrow {
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    background: url(../img/icons/arrow.svg) center center/90% 90% no-repeat, #ffffff; }
+    .el__arrow.is-left {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .el__arrow.is-right {
+      right: 0; }
   .el__photo-thumb-slide {
     margin-right: 2px;
     border: 1px solid #1f1f1f;
@@ -676,6 +694,18 @@ h1 {
     left: auto;
     right: 5px; }
 
+.success-message, .error-message {
+  display: none;
+  padding: 10px;
+  font-family: Helvetica;
+  font-weight: 600; }
+
+.success-message {
+  color: #23dc5e; }
+
+.error-message {
+  color: #ff081f; }
+
 @media all and (max-width: 648px) {
   .header {
     flex-wrap: wrap; }
@@ -718,4 +748,28 @@ h1 {
     .el:nth-child(5) {
       transform: translate3d(0, 416%, 0); }
     .el__content {
-      padding: 15px; } }
+      padding: 15px; }
+    .el__tab-navs {
+      display: none; }
+    .el__order-tabs {
+      flex-wrap: wrap; }
+    .el__order-tab, .el__order-tab.is-active {
+      flex-grow: unset;
+      display: block;
+      text-align: left;
+      -webkit-transform: unset;
+      transform: unset; }
+    .el__phone:before, .el__whatsapp:before, .el__email:before {
+      content: '';
+      height: 32px;
+      width: 32px;
+      vertical-align: middle;
+      margin-right: 10px;
+      display: block;
+      float: left; }
+    .el__phone:before {
+      background: url(../img/icons/phone-icon.svg) center center/cover no-repeat; }
+    .el__whatsapp:before {
+      background: url(../img/icons/whatsapp-icon.svg) center center/cover no-repeat; }
+    .el__email:before {
+      background: url(../img/icons/mail-icon.svg) center center/cover no-repeat; } }

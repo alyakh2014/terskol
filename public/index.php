@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="css/slick-theme.css"
     <link rel="stylesheet" href="css/gabriellewee.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/slick.min.js"></script>
 
 </head>
 
@@ -83,7 +80,35 @@
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab" data-index="form"></div>
+                                    <div class="el__order-tab" data-index="form">
+                                        <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="apartment">
+                                            <input type="hidden" name="id" value="Апартаменты"/>
+
+                                            <div class="el__input">
+                                                <input type="text" name="fio" placeholder="ФИО"/>
+                                            </div>
+                                            <div class="el__input">
+                                                <input type="text" name="phone" placeholder="Телефон" class="js-phone"/>
+                                            </div>
+                                            <div class="el__input">
+                                                <input type="number" name="quantity" placeholder="Количество мест"/>
+                                            </div>
+                                            <div class="el__input">
+                                                <input type="text" name="from" placeholder="C"/>
+                                                <input type="text" name="to" placeholder="по"/>
+                                            </div>
+
+                                            <div class="el__textarea">
+                                                <textarea name="comment" placeholder="Комментарий"></textarea>
+                                            </div>
+
+                                            <button type="submit" class="el__button">Оставить заявку</button>
+                                            <div class="error-message"></div>
+                                        </form>
+                                        <div class="success-message">
+                                            Ваша заявка успешно отправлена. <br/> В ближайшее время с вами свяжутся
+                                        </div>
+                                    </div>
                                     <div class="el__order-tab is-active" data-index="call">
                                         <a href="tel:+79287075517">
                                             <div class="el__phone">+ 7 928 707 55 17</div>
@@ -116,6 +141,8 @@
                                 <img src="img/apartment/apartment-6.jpeg" alt="" class="el__photo-slide">
                                 <img src="img/apartment/apartment-7.jpeg" alt="" class="el__photo-slide">
                                 <img src="img/apartment/apartment-8.jpeg" alt="" class="el__photo-slide">
+                                <img src="img/apartment/apartment-9.jpeg" alt="" class="el__photo-slide">
+                                <img src="img/apartment/apartment-10.jpeg" alt="" class="el__photo-slide">
                             </div>
                             <div class="el__photo-thumb">
                                 <img src="img/menu/menu-2.jpg" alt="" class="el__photo-thumb-slide">
@@ -126,6 +153,8 @@
                                 <img src="img/apartment/apartment-6.jpeg" alt="" class="el__photo-thumb-slide">
                                 <img src="img/apartment/apartment-7.jpeg" alt="" class="el__photo-thumb-slide">
                                 <img src="img/apartment/apartment-8.jpeg" alt="" class="el__photo-thumb-slide">
+                                <img src="img/apartment/apartment-9.jpeg" alt="" class="el__photo-thumb-slide">
+                                <img src="img/apartment/apartment-10.jpeg" alt="" class="el__photo-thumb-slide">
                             </div>
                         </div>
                         <div class="el__close-btn"></div>
@@ -330,6 +359,10 @@
 <!---->
 
 
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/vendor.min.js"></script>
+<script src="js/slick.min.js"></script>
 <script src="js/index.js"></script>
 
 

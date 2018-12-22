@@ -154,6 +154,9 @@ a {
   &.yes {
     color: #23dc5e;
   }
+  &.no {
+    color: #ff081f;
+  }
 }
 
 h1 {
@@ -427,6 +430,26 @@ h1 {
     cursor: pointer;
     &:focus {
       outline:none
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    background: url(../img/icons/arrow.svg) center center/90% 90% no-repeat, #ffffff;
+    &.is-left{
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    } 
+    &.is-right{
+      right: 0;
     }
   }
 
@@ -792,6 +815,19 @@ h1 {
   }
 }
 
+.success-message, .error-message {
+  display: none;
+  padding: 10px;
+  font-family: Helvetica;
+  font-weight: 600;
+}
+.success-message {
+  color: #23dc5e;
+}
+.error-message {
+  color: #ff081f;
+}
+
 @media all and (max-width: 648px) {
   .header {
     flex-wrap: wrap;
@@ -853,6 +889,41 @@ h1 {
     }
     &__content {
       padding: 15px;
+    }
+
+    &__tab-navs{
+      display: none;
+    }
+
+    &__order-tabs {
+      flex-wrap: wrap;
+    }
+    &__order-tab, &__order-tab.is-active {
+      flex-grow: unset;
+      display: block;
+      text-align: left;
+      -webkit-transform: unset;
+      transform: unset;
+    }
+    &__phone, &__whatsapp, &__email {
+      &:before {
+        content: '';
+        height: 32px;
+        width: 32px;
+        vertical-align: middle;
+        margin-right: 10px;
+        display: block;
+        float: left;
+      }
+    }
+    &__phone:before {
+      background: url(../img/icons/phone-icon.svg) center center/cover no-repeat;
+    }
+    &__whatsapp:before {
+      background: url(../img/icons/whatsapp-icon.svg) center center/cover no-repeat;
+    }
+    &__email:before {
+      background: url(../img/icons/mail-icon.svg) center center/cover no-repeat;
     }
   }
 }
