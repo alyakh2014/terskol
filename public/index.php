@@ -2,9 +2,20 @@
 <html lang="ru">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131355641-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131355641-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="yandex-verification" content="c64747aabd295094" />
 
     <title>Terskol Home</title>
 
@@ -13,6 +24,14 @@
     <link rel="stylesheet" href="css/slick-theme.css"
     <link rel="stylesheet" href="css/gabriellewee.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1f1f1f">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
 
 </head>
 
@@ -67,9 +86,9 @@
                         <div class="el__content-left">
                             <div class="el__description">Приглашаем вас в уютные апартаменты Terskol Home. В каждой комнате
                                 отдельный санузел с душем и туалетом, телевизор. Обеденная зона, кухня, лыжехранилище.
-                                Общая вместимость - 16 человек.
+                                Общая вместимость&nbsp;-&nbsp;16&nbsp;человек.
                             </div>
-                            <div class="el__price-block">Цена: 2000 руб/сутки</div>
+                            <div class="el__price-block">Цена: 17000 руб/сутки с чел.</div>
                             <div class="el__order-block">
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
@@ -80,20 +99,21 @@
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab" data-index="form">
+                                    <div class="el__order-tab is-form" data-index="form">
                                         <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="apartment">
+                                            <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value="Апартаменты"/>
 
-                                            <div class="el__input">
-                                                <input type="text" name="fio" placeholder="ФИО"/>
+                                            <div class="el__input is-fio is-required">
+                                                <input type="text" name="fio" placeholder="Ваше имя"/>
                                             </div>
-                                            <div class="el__input">
+                                            <div class="el__input is-phone is-required">
                                                 <input type="text" name="phone" placeholder="Телефон" class="js-phone"/>
                                             </div>
-                                            <div class="el__input">
+                                            <div class="el__input is-quantity">
                                                 <input type="number" name="quantity" placeholder="Количество мест"/>
                                             </div>
-                                            <div class="el__input">
+                                            <div class="el__input is-from-to">
                                                 <input type="text" name="from" placeholder="C"/>
                                                 <input type="text" name="to" placeholder="по"/>
                                             </div>
@@ -102,7 +122,7 @@
                                                 <textarea name="comment" placeholder="Комментарий"></textarea>
                                             </div>
 
-                                            <button type="submit" class="el__button">Оставить заявку</button>
+                                            <button type="submit" class="el__button">Отправить заявку</button>
                                             <div class="error-message"></div>
                                         </form>
                                         <div class="success-message">
@@ -188,8 +208,8 @@
                             Телевизор
                         </div>
                     </div>
-                    <div class="el__price" data-index="Цена: 2000 руб/сутки">
-                        Цена: 2000 руб/сутки
+                    <div class="el__price" data-index="Цена: 1700 руб/сутки с чел.">
+                        Цена: 1700 руб/сутки с чел.
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
@@ -217,7 +237,7 @@
                                 душ, туалет, стиральная машина. WI-FI.
                                 Общая вместимость - 8 человек.
                             </div>
-                            <div class="el__price-block">Цена: 1000 руб/сутки</div>
+                            <div class="el__price-block">Цена: 1000 руб/сутки с чел.</div>
                             <div class="el__order-block">
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
@@ -228,7 +248,36 @@
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab" data-index="form"></div>
+                                    <div class="el__order-tab is-form" data-index="form">
+                                        <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="hostel">
+                                            <div class="el__order-comment">Заполните форму обратной связи</div>
+                                            <input type="hidden" name="id" value="Хостел"/>
+
+                                            <div class="el__input is-fio is-required">
+                                                <input type="text" name="fio" placeholder="Ваше имя"/>
+                                            </div>
+                                            <div class="el__input is-phone is-required">
+                                                <input type="text" name="phone" placeholder="Телефон" class="js-phone"/>
+                                            </div>
+                                            <div class="el__input is-quantity">
+                                                <input type="number" name="quantity" placeholder="Количество мест"/>
+                                            </div>
+                                            <div class="el__input is-from-to">
+                                                <input type="text" name="from" placeholder="C"/>
+                                                <input type="text" name="to" placeholder="по"/>
+                                            </div>
+
+                                            <div class="el__textarea">
+                                                <textarea name="comment" placeholder="Комментарий"></textarea>
+                                            </div>
+
+                                            <button type="submit" class="el__button">Отправить заявку</button>
+                                            <div class="error-message"></div>
+                                        </form>
+                                        <div class="success-message">
+                                            Ваша заявка успешно отправлена. <br/> В ближайшее время с вами свяжутся
+                                        </div>
+                                    </div>
                                     <div class="el__order-tab is-active" data-index="call">
                                         <a href="tel:+79287075517">
                                             <div class="el__phone">+ 7 928 707 55 17</div>
@@ -275,8 +324,8 @@
                             Машиноместо
                         </div>
                     </div>
-                    <div class="el__price" data-index="Цена: 1000 руб/сутки">
-                        Цена: 1000 руб/сутки
+                    <div class="el__price" data-index="Цена: 1000 руб/сутки с чел.">
+                        Цена: 1000 руб/сутки с чел.
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
@@ -365,6 +414,23 @@
 <script src="js/slick.min.js"></script>
 <script src="js/index.js"></script>
 
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(51714014, "init", {
+        id:51714014,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51714014" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 </body>
 

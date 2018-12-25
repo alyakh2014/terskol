@@ -68,6 +68,21 @@ function initSlider($context) {
     });
 }
 
+/**
+ * провряет, является ли переданная строка форматом json
+ * @param str
+ * @returns {boolean}
+ * @constructor
+ */
+window.IsJsonString = function (str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+};
+
 $(function () {
 
     $('.el').each(function () {
@@ -84,37 +99,58 @@ $(function () {
 
     $(".js-phone").inputmask("+7(999)999-99-99");
 
-    $('.mail-form').on('submit', function (e) {
-        e.preventDefault();
+    $('.mail-form').each(function(i, form){
+        $(form).on('submit', function (e) {
+            e.preventDefault();
 
-        var sendUrl = $(this).attr('action'),
-            sendData = $(this).serialize(),
-            $errorMess = $(this).children('.error-message'),
-            $successBlock = $(this).siblings('.success-message');
-        $.ajax({
-            type: 'post',
-            url: sendUrl,
-            data: sendData,
-            beforeSend: function (data) {
+            var $form = $(this),
+                sendUrl = $form.attr('action'),
+                sendData = $form.serialize(),
+                $errorMess = $form.children('.error-message'),
+                $requiredFields = $form.children('.is-required').children('input'),
+                $fio = $form.children('.is-fio'),
+                $phone = $form.children('.is-phone'),
+                $successBlock = $form.siblings('.success-message');
 
-            },
-            success: function (data) {
-                if(data === 'success'){
-                    $(this).hide();
-                    $successBlock.show();
-                } else if(data === 'error') {
+            $requiredFields.on('focus', function(){
+                $requiredFields.closest('.el__input').removeClass('is-error');
+                $errorMess.hide();
+            });
+            $.ajax({
+                type: 'post',
+                url: sendUrl,
+                data: sendData,
+                beforeSend: function (data) {
+                    $errorMess.hide();
+                },
+                success: function (data) {
+                    if(data === 'success'){
+                        $form.hide();
+                        $successBlock.show();
+                    } else if(data === 'error') {
+                        $errorMess.html('Произошла ошибка. Обратитесь по телефону: <a href="tel:79287075517">+ 7 928 707 55 17</a>').show();
+                    } else if(IsJsonString(data)) {
+                        var result = JSON.parse(data);
+                        if(result['no-phone']){
+                            $phone.addClass('is-error');
+                            $phone.children('input').focus();
+                        }
+                        if(result['no-fio']){
+                            $fio.addClass('is-error');
+                            $fio.children('input').focus();
+                        }
+                        $errorMess.html('Заполните все обязательные поля').show();
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
                     $errorMess.html('Произошла ошибка. Обратитесь по телефону: <a href="tel:79287075517">+ 7 928 707 55 17</a>').show();
-                } else if(data === 'no-data') {
-                    $errorMess.html('Заполните все обязательные поля').show();
                 }
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                $errorMess.html('Произошла ошибка. Обратитесь по телефону: <a href="tel:79287075517">+ 7 928 707 55 17</a>').show();
-            }
+
+            });
 
         });
-
     });
+
 
 
 });

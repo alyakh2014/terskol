@@ -15,6 +15,17 @@
   margin: 0;
   padding: 0; }
 
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected,
+textarea:-internal-autofill-previewed,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-previewed,
+input:-webkit-autofill,
+select:-internal-autofill-selected {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important; }
+
 body {
   background: #1f1f1f;
   font-family: 'Gilroy', 'Open sans', Helvetica, Arial, sans-serif;
@@ -34,7 +45,11 @@ a {
   justify-content: space-between;
   position: absolute;
   width: 100%;
-  z-index: 9999; }
+  z-index: 9999;
+  max-width: 1400px;
+  margin: 0 auto;
+  right: 0;
+  left: 0; }
 
 .room-status {
   width: 33.333333%;
@@ -551,6 +566,62 @@ h1 {
       text-decoration: underline; }
       .el__whatsapp a b:hover, .el__email a b:hover {
         text-decoration: none; }
+  .el__order-comment {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%; }
+  .el__input {
+    position: relative; }
+    .el__input.is-fio, .el__input.is-phone {
+      width: 50%; }
+      .el__input.is-fio input, .el__input.is-phone input {
+        width: calc(100% - 10px); }
+    .el__input.is-required.is-error input {
+      border-color: #ff081f; }
+    .el__input.is-required:after {
+      content: '*';
+      color: #ff081f;
+      position: absolute;
+      left: 0;
+      font-size: 28px;
+      top: 0; }
+    .el__input.is-quantity {
+      width: 33.3333%; }
+    .el__input.is-from-to {
+      width: 66.66666%; }
+    .el__input input {
+      padding: 10px 10px 5px;
+      margin-bottom: 10px;
+      border: none;
+      border-bottom: 1px solid #a9a9a9;
+      background: transparent;
+      color: white;
+      font-size: 16px; }
+      .el__input input:focus {
+        outline: none;
+        border-color: white; }
+  .el__textarea {
+    width: 100%;
+    margin-top: 10px; }
+    .el__textarea textarea {
+      width: 100%;
+      min-height: 60px;
+      font-size: 16px;
+      padding: 10px;
+      background: transparent;
+      color: white;
+      margin-bottom: 10px; }
+      .el__textarea textarea:focus {
+        outline: none;
+        border-color: #ffffff; }
+  .el__button {
+    padding: 10px;
+    background: white;
+    border: none;
+    font-weight: 800;
+    font-size: 16px;
+    color: #1f1f1f;
+    cursor: pointer; }
   @media all and (max-width: 1260px) {
     .el__more, .el__order {
       float: none;
@@ -681,6 +752,21 @@ h1 {
       .el__content-left {
         padding-right: 0;
         margin-bottom: 20px; } }
+  @media screen and (max-width: 767px) {
+    .el__input.is-fio, .el__input.is-phone, .el__input.is-from-to, .el__input.is-quantity {
+      width: 100%; }
+      .el__input.is-fio input, .el__input.is-phone input, .el__input.is-from-to input, .el__input.is-quantity input {
+        width: auto; }
+    .el__textarea textarea {
+      min-height: 140px; }
+    .el__close-btn {
+      position: fixed;
+      top: 20px;
+      width: 30px;
+      height: 30px; } }
+  @media screen and (max-width: 479px) {
+    .el__input.is-fio input, .el__input.is-phone input, .el__input.is-from-to input, .el__input.is-quantity input {
+      width: 100%; } }
 
 .icon-link {
   position: absolute;
@@ -693,6 +779,11 @@ h1 {
   .icon-link--twitter {
     left: auto;
     right: 5px; }
+
+form.mail-form {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left; }
 
 .success-message, .error-message {
   display: none;
@@ -759,6 +850,8 @@ h1 {
       text-align: left;
       -webkit-transform: unset;
       transform: unset; }
+      .el__order-tab.is-form, .el__order-tab.is-active.is-form {
+        order: 4; }
     .el__phone:before, .el__whatsapp:before, .el__email:before {
       content: '';
       height: 32px;
