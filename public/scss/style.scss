@@ -444,10 +444,31 @@ h1 {
   }
 
   &__photo-slide, &__photo-thumb-slide {
-    cursor: pointer;
     &:focus {
       outline: none
     }
+  }
+
+  &__photo-slide {
+    position: relative;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__photo-thumb-slide {
+    cursor: pointer;
+  }
+
+  &__photo-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 36px;
+    line-height: 22px;
+    text-shadow: 0 0 4px #000;
+    text-align: center;
+    background: rgba(31, 31, 31, 0.75);
   }
 
   &__arrow {
@@ -687,6 +708,9 @@ h1 {
         }
       }
     }
+  }
+  &__email a b {
+    font-family: sans-serif;
   }
 
   &__order-comment {

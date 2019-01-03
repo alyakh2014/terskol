@@ -34,7 +34,7 @@ $message = "<div><b>Имя:</b> $fio</div>
 				<div><b>Комментарий:</b> $comment</div>
 				";
 
-$sendSuccess = mail('ahkubekovalim@mail.ru', 'Новая ЗАЯВКА на ' . $id, $message, $headers);
+$sendSuccess = mail('ahkubekovalim@mail.ru, sapira-terskol@mail.ru', 'Новая ЗАЯВКА на ' . $id, $message, $headers);
 
 echo $sendSuccess ? 'success' : 'error';
 

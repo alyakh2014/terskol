@@ -251,10 +251,23 @@ h1 {
     font-size: 18px; }
   .el__photo-thumb {
     margin-top: 4px; }
-  .el__photo-slide, .el__photo-thumb-slide {
+  .el__photo-slide:focus, .el__photo-thumb-slide:focus {
+    outline: none; }
+  .el__photo-slide {
+    position: relative; }
+    .el__photo-slide img {
+      max-width: 100%; }
+  .el__photo-thumb-slide {
     cursor: pointer; }
-    .el__photo-slide:focus, .el__photo-thumb-slide:focus {
-      outline: none; }
+  .el__photo-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 36px;
+    line-height: 22px;
+    text-shadow: 0 0 4px #000;
+    text-align: center;
+    background: rgba(31, 31, 31, 0.75); }
   .el__arrow {
     position: absolute;
     z-index: 99;
@@ -566,6 +579,8 @@ h1 {
       text-decoration: underline; }
       .el__whatsapp a b:hover, .el__email a b:hover {
         text-decoration: none; }
+  .el__email a b {
+    font-family: sans-serif; }
   .el__order-comment {
     text-align: center;
     margin-bottom: 20px;
