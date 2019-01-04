@@ -15,7 +15,7 @@ $elsArr.forEach(function ($el) {
         this.classList.add('s--active');
         setTimeout(function () {
             initSlider($el);
-        }, 1600);// Инициализация строго после полного разворота окна
+        }, 2000);// Инициализация строго после полного разворота окна
     });
 });
 
@@ -100,6 +100,20 @@ $(function () {
     $(".js-phone").inputmask("+7(999)999-99-99");
 
     $('.mail-form').each(function(i, form){
+        var $from = $(this).children('.is-from-to').children('input[name="from"]'),
+            $to = $(this).children('.is-from-to').children('input[name="to"]'),
+            dateParam = {
+                lang: "ru",
+                sundayFirst: false,
+                years: "80",
+                format: "DD.MM.YYYY",
+                onClick: function(date){
+                    $("#result-1").html("onClick: " + date);
+                }
+            };
+        $from.ionDatePicker(dateParam);
+        $to.ionDatePicker(dateParam);
+
         $(form).on('submit', function (e) {
             e.preventDefault();
 

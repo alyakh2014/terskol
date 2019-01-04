@@ -24,7 +24,8 @@ global $VARIABLES;
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slick-theme.css"
-    <link rel="stylesheet" href="css/gabriellewee.css">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/ion.calendar.css">
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
@@ -116,8 +117,8 @@ global $VARIABLES;
                                                 <input type="number" name="quantity" placeholder="Количество мест"/>
                                             </div>
                                             <div class="el__input is-from-to">
-                                                <input type="text" name="from" placeholder="C"/>
-                                                <input type="text" name="to" placeholder="по"/>
+                                                <input type="text" name="from" autocomplete="no" placeholder="C"/>
+                                                <input type="text" name="to" autocomplete="no" placeholder="по"/>
                                             </div>
 
                                             <div class="el__textarea">
@@ -257,8 +258,8 @@ global $VARIABLES;
                                                 <input type="number" name="quantity" placeholder="Количество мест"/>
                                             </div>
                                             <div class="el__input is-from-to">
-                                                <input type="text" name="from" placeholder="C"/>
-                                                <input type="text" name="to" placeholder="по"/>
+                                                <input type="text" name="from" autocomplete="no" placeholder="C"/>
+                                                <input type="text" name="to" autocomplete="no" placeholder="по"/>
                                             </div>
 
                                             <div class="el__textarea">
@@ -391,8 +392,8 @@ global $VARIABLES;
                                                 <input type="number" name="quantity" placeholder="Количество мест"/>
                                             </div>
                                             <div class="el__input is-from-to">
-                                                <input type="text" name="from" placeholder="C"/>
-                                                <input type="text" name="to" placeholder="по"/>
+                                                <input type="text" name="from" lang="ru" autocomplete="no" placeholder="C"/>
+                                                <input type="text" name="to" lang="ru" autocomplete="no" placeholder="по"/>
                                             </div>
 
                                             <div class="el__textarea">
@@ -592,6 +593,8 @@ global $VARIABLES;
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script src="js/vendor.min.js"></script>
 <script src="js/slick.min.js"></script>
+<script src="js/moment-with-locales.min.js"></script>
+<script src="js/ion.calendar.min.js"></script>
 <script src="js/index.js"></script>
 
 
@@ -609,7 +612,11 @@ global $VARIABLES;
         webvisor:true
     });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/51714014" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+    <div>
+        <img src="https://mc.yandex.ru/watch/51714014" style="position:absolute; left:-9999px;" alt=""/>
+    </div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 
 </body>

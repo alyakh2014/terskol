@@ -812,6 +812,15 @@ form.mail-form {
 .error-message {
   color: #ff081f; }
 
+@media all and (max-width: 1023px) {
+  .ic__datepicker {
+    z-index: 99999; } }
+
+@media all and (max-width: 496px) {
+  .ic__datepicker {
+    left: 25px !important;
+    margin-top: 44px; } }
+
 @media all and (max-width: 648px) {
   .header {
     flex-wrap: wrap; }
