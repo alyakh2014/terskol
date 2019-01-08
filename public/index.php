@@ -8,7 +8,11 @@ global $VARIABLES;
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131355641-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-131355641-1');
@@ -16,8 +20,8 @@ global $VARIABLES;
 
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="yandex-verification" content="c64747aabd295094" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no, maximum-scale=1">
+    <meta name="yandex-verification" content="c64747aabd295094"/>
 
     <title>Terskol Home</title>
 
@@ -36,13 +40,17 @@ global $VARIABLES;
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
 
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=1b4c293c-6ae0-45ed-bd17-3a90ce8109dc&lang=ru_RU"
+            type="text/javascript">
+    </script>
+
 </head>
 
 <body>
 
 <div class="header">
     <div class="room-status yes">Есть места!</div>
-    <h1>Terskol Home</h1>
+    <h1><a href="/">Terskol Home</a></h1>
     <div class="call-us">
         <a href="tel:+79287075517">
             + 7 928 707 55 17
@@ -53,7 +61,7 @@ global $VARIABLES;
     <!-- cont inner start -->
     <div class="cont__inner">
         <!-- el start -->
-        <div class="el">
+        <div class="el has-map">
             <div class="el__overflow">
                 <div class="el__inner">
                     <div class="el__bg"></div>
@@ -62,15 +70,40 @@ global $VARIABLES;
                     </div>
                     <div class="el__content">
                         <div class="el__text">О нас</div>
+                        <div class="el__content-left">
+                            <div class="el__description">
+                                <b>Адреса объектов Terskol Home</b><br/>
+                                Россия, КБР, с Терксол
+                                <ul class="el__adress">
+                                    <li> - Апартаменты: ул. Заречная дом 5</li>
+                                    <li> - Хостел: ул. Заречная дом 8</li>
+                                    <li> - Коттедж "Сапира": ул Заречная дом 8а</li>
+                                </ul>
+                            </div>
+                            <div class="el__description">
+                                <p><b>Сведения об организации:</b> ИП Тилов Ибрагим Даулетович</p>
+                                <p><b>ИНН:</b> 071002805487</p>
+                                <p><b>ОГРНИП:</b> 314072010500032</p>
+                            </div>
+                            <div class="el__description">
+                                Адрес электронной почты:
+                                <a href="mailto:sapira-terskol@mail.ru">
+                                    <b> sapira-terskol@mail.ru</b>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="el__content-right">
+                            <div class="el__map" id="yandexMap"></div>
+                        </div>
                         <div class="el__close-btn"></div>
                     </div>
                 </div>
             </div>
             <div class="el__index">
-                <div class="el__index-back">Краткое описание сервиса</div>
+                <div class="el__index-back">Контакты и данные предприятия</div>
                 <div class="el__index-front">
-                    <div class="el__index-overlay" data-index="Краткое описание сервиса">
-                        Краткое описание сервиса
+                    <div class="el__index-overlay" data-index="Контакты и данные предприятия">
+                        ККонтакты и данные предприятия
                     </div>
                 </div>
             </div>
@@ -87,11 +120,16 @@ global $VARIABLES;
                     <div class="el__content">
                         <div class="el__text">Апартаменты</div>
                         <div class="el__content-left">
-                            <div class="el__description">Приглашаем вас в уютные апартаменты Terskol Home. В каждой комнате
+                            <div class="el__description">Приглашаем вас в уютные апартаменты Terskol Home. В каждой
+                                комнате
                                 отдельный санузел с душем и туалетом, телевизор. Обеденная зона, кухня, лыжехранилище.
                                 Общая вместимость&nbsp;-&nbsp;16&nbsp;человек.
                             </div>
-                            <div class="el__price-block">Цена: 17000 руб/сутки с чел.</div>
+                            <div class="el__price-block">Цена: 1000-1500 руб/чел/сут
+                                <div class="el__price-comment">Цена зависит от числа проживающих и длительности
+                                    пребывания
+                                </div>
+                            </div>
                             <div class="el__order-block">
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
@@ -103,7 +141,8 @@ global $VARIABLES;
                                 </div>
                                 <div class="el__order-tabs">
                                     <div class="el__order-tab is-form" data-index="form">
-                                        <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="apartment">
+                                        <form action="ajax/sendmail.php" class="mail-form js-validate"
+                                              data-id="apartment">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value="Апартаменты"/>
 
@@ -124,7 +163,14 @@ global $VARIABLES;
                                             <div class="el__textarea">
                                                 <textarea name="comment" placeholder="Комментарий"></textarea>
                                             </div>
-
+                                            <div class="el__agreement">
+                                                Нажимая на&nbsp;кнопку &laquo;Оправить заявку&raquo;
+                                                вы&nbsp;даете свое согласие на&nbsp;обработку персональных данных
+                                                в&nbsp;соответствии с&nbsp;
+                                                <a href="/agreement.php" target="_blank">Соглашением</a> и&nbsp;с&nbsp;
+                                                <a href="/privacy.php" target="_blank">Политикой в&nbsp;отношении обработки и&nbsp;обеспечения
+                                                    защиты персональных данных.</a>
+                                            </div>
                                             <button type="submit" class="el__button">Отправить заявку</button>
                                             <div class="error-message"></div>
                                         </form>
@@ -138,36 +184,37 @@ global $VARIABLES;
                                         </a>
                                     </div>
                                     <div class="el__order-tab" data-index="whatsapp">
-                                            <div class="el__whatsapp">
-                                                <a href="https://wa.me/79287075517">
-                                                    Напишите нам в WhatsApp по номеру <b>+ 7 928 707 55 17</b>
-                                                </a>
-                                            </div>
+                                        <div class="el__whatsapp">
+                                            <a href="https://wa.me/79287075517">
+                                                Напишите нам в WhatsApp по номеру <b>+ 7 928 707 55 17</b>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="el__order-tab" data-index="mail">
-                                            <div class="el__email">
-                                                <a href="mailto:sapira-terskol@mail.ru">
-                                                    Напишите нам на <b> sapira-terskol@mail.ru</b>
-                                                </a>
-                                            </div>
+                                        <div class="el__email">
+                                            <a href="mailto:sapira-terskol@mail.ru">
+                                                Напишите нам на <b> sapira-terskol@mail.ru</b>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="el__content-right">
-                            <? if($VARIABLES['PHOTO']['APARTMENT']) { ?>
+                            <? if ($VARIABLES['PHOTO']['APARTMENT']) { ?>
                                 <div class="el__photo-slider">
-                                    <? foreach ($VARIABLES['PHOTO']['APARTMENT'] as $photo) {?>
+                                    <? foreach ($VARIABLES['PHOTO']['APARTMENT'] as $photo) { ?>
                                         <div class="el__photo-slide">
-                                            <img src="<?=$photo['SRC']?>" alt="<?=$photo['ALT']?>">
-                                            <div class="el__photo-caption"><?=$photo['TITLE']?></div>
+                                            <img src="<?= $photo['SRC'] ?>" alt="<?= $photo['ALT'] ?>">
+                                            <div class="el__photo-caption"><?= $photo['TITLE'] ?></div>
                                         </div>
-                                    <?}?>
+                                    <? } ?>
                                 </div>
                                 <div class="el__photo-thumb">
-                                    <? foreach ($VARIABLES['PHOTO']['APARTMENT'] as $photo) {?>
-                                        <img src="<?=$photo['SRC']?>" alt="<?=$photo['ALT']?>" class="el__photo-thumb-slide">
-                                    <?}?>
+                                    <? foreach ($VARIABLES['PHOTO']['APARTMENT'] as $photo) { ?>
+                                        <img src="<?= $photo['SRC'] ?>" alt="<?= $photo['ALT'] ?>"
+                                             class="el__photo-thumb-slide">
+                                    <? } ?>
                                 </div>
                             <? } ?>
                         </div>
@@ -202,8 +249,8 @@ global $VARIABLES;
                             Телевизор
                         </div>
                     </div>
-                    <div class="el__price" data-index="Цена: 1700 руб/сутки с чел.">
-                        Цена: 1700 руб/сутки с чел.
+                    <div class="el__price" data-index="Цена: 1000-1500 руб/чел/сут">
+                        Цена: 1000-1500 руб/чел/сут
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
@@ -232,7 +279,11 @@ global $VARIABLES;
                                 душ, туалет, стиральная машина. WI-FI.
                                 Общая вместимость - 11 человек.
                             </div>
-                            <div class="el__price-block">Цена: 1000 руб/сутки с чел.</div>
+                            <div class="el__price-block">Цена: 500-600 руб/чел/сут
+                                <div class="el__price-comment">Цена зависит от числа проживающих и длительности
+                                    пребывания
+                                </div>
+                            </div>
                             <div class="el__order-block">
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
@@ -265,7 +316,14 @@ global $VARIABLES;
                                             <div class="el__textarea">
                                                 <textarea name="comment" placeholder="Комментарий"></textarea>
                                             </div>
-
+                                            <div class="el__agreement">
+                                                Нажимая на&nbsp;кнопку &laquo;Оправить заявку&raquo;
+                                                вы&nbsp;даете свое согласие на&nbsp;обработку персональных данных
+                                                в&nbsp;соответствии с&nbsp;
+                                                <a href="/agreement.php" target="_blank">Соглашением</a> и&nbsp;с&nbsp;
+                                                <a href="/privacy.php" target="_blank">Политикой в&nbsp;отношении обработки и&nbsp;обеспечения
+                                                    защиты персональных данных.</a>
+                                            </div>
                                             <button type="submit" class="el__button">Отправить заявку</button>
                                             <div class="error-message"></div>
                                         </form>
@@ -296,19 +354,20 @@ global $VARIABLES;
                             </div>
                         </div>
                         <div class="el__content-right">
-                            <? if($VARIABLES['PHOTO']['HOSTEL']) { ?>
+                            <? if ($VARIABLES['PHOTO']['HOSTEL']) { ?>
                                 <div class="el__photo-slider">
-                                    <? foreach ($VARIABLES['PHOTO']['HOSTEL'] as $photo) {?>
+                                    <? foreach ($VARIABLES['PHOTO']['HOSTEL'] as $photo) { ?>
                                         <div class="el__photo-slide">
-                                            <img src="<?=$photo['SRC']?>" alt="<?=$photo['ALT']?>">
-                                            <div class="el__photo-caption"><?=$photo['TITLE']?></div>
+                                            <img src="<?= $photo['SRC'] ?>" alt="<?= $photo['ALT'] ?>">
+                                            <div class="el__photo-caption"><?= $photo['TITLE'] ?></div>
                                         </div>
-                                    <?}?>
+                                    <? } ?>
                                 </div>
                                 <div class="el__photo-thumb">
-                                    <? foreach ($VARIABLES['PHOTO']['HOSTEL'] as $photo) {?>
-                                        <img src="<?=$photo['SRC']?>" alt="<?=$photo['ALT']?>" class="el__photo-thumb-slide">
-                                    <?}?>
+                                    <? foreach ($VARIABLES['PHOTO']['HOSTEL'] as $photo) { ?>
+                                        <img src="<?= $photo['SRC'] ?>" alt="<?= $photo['ALT'] ?>"
+                                             class="el__photo-thumb-slide">
+                                    <? } ?>
                                 </div>
                             <? } ?>
                         </div>
@@ -336,8 +395,8 @@ global $VARIABLES;
                             Машиноместо
                         </div>
                     </div>
-                    <div class="el__price" data-index="Цена: 1000 руб/сутки с чел.">
-                        Цена: 1000 руб/сутки с чел.
+                    <div class="el__price" data-index="Цена: 500-600 руб/чел/сут">
+                        Цена: 500-600 руб/чел/сут
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
@@ -366,7 +425,11 @@ global $VARIABLES;
                                 Две кухни на втором и третьем этажах, душевые кабинки, туалеты, прачечная, WI-FI.
                                 Общая вместимость - 21-25 человек.
                             </div>
-                            <div class="el__price-block">Цена: 1000 руб/сутки с чел.</div>
+                            <div class="el__price-block">Цена: 600-800 руб/чел/сут
+                                <div class="el__price-comment">Цена зависит от числа проживающих и длительности
+                                    пребывания
+                                </div>
+                            </div>
                             <div class="el__order-block">
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
@@ -378,7 +441,8 @@ global $VARIABLES;
                                 </div>
                                 <div class="el__order-tabs">
                                     <div class="el__order-tab is-form" data-index="form">
-                                        <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="cottage">
+                                        <form action="ajax/sendmail.php" class="mail-form js-validate"
+                                              data-id="cottage">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value='Коттедж "Сапиира"'/>
 
@@ -392,14 +456,23 @@ global $VARIABLES;
                                                 <input type="number" name="quantity" placeholder="Количество мест"/>
                                             </div>
                                             <div class="el__input is-from-to">
-                                                <input type="text" name="from" lang="ru" autocomplete="no" placeholder="C"/>
-                                                <input type="text" name="to" lang="ru" autocomplete="no" placeholder="по"/>
+                                                <input type="text" name="from" lang="ru" autocomplete="no"
+                                                       placeholder="C"/>
+                                                <input type="text" name="to" lang="ru" autocomplete="no"
+                                                       placeholder="по"/>
                                             </div>
 
                                             <div class="el__textarea">
                                                 <textarea name="comment" placeholder="Комментарий"></textarea>
                                             </div>
-
+                                            <div class="el__agreement">
+                                                Нажимая на&nbsp;кнопку &laquo;Оправить заявку&raquo;
+                                                вы&nbsp;даете свое согласие на&nbsp;обработку персональных данных
+                                                в&nbsp;соответствии с&nbsp;
+                                                <a href="/agreement.php" target="_blank">Соглашением</a> и&nbsp;с&nbsp;
+                                                <a href="/privacy.php" target="_blank">Политикой в&nbsp;отношении обработки и&nbsp;обеспечения
+                                                    защиты персональных данных.</a>
+                                            </div>
                                             <button type="submit" class="el__button">Отправить заявку</button>
                                             <div class="error-message"></div>
                                         </form>
@@ -430,19 +503,20 @@ global $VARIABLES;
                             </div>
                         </div>
                         <div class="el__content-right">
-                            <? if($VARIABLES['PHOTO']['COTTAGE']) { ?>
+                            <? if ($VARIABLES['PHOTO']['COTTAGE']) { ?>
                                 <div class="el__photo-slider">
-                                    <? foreach ($VARIABLES['PHOTO']['COTTAGE'] as $photo) {?>
+                                    <? foreach ($VARIABLES['PHOTO']['COTTAGE'] as $photo) { ?>
                                         <div class="el__photo-slide">
-                                            <img src="<?=$photo['SRC']?>" alt="<?=$photo['ALT']?>">
-                                            <div class="el__photo-caption"><?=$photo['TITLE']?></div>
+                                            <img src="<?= $photo['SRC'] ?>" alt="<?= $photo['ALT'] ?>">
+                                            <div class="el__photo-caption"><?= $photo['TITLE'] ?></div>
                                         </div>
-                                    <?}?>
+                                    <? } ?>
                                 </div>
                                 <div class="el__photo-thumb">
-                                    <? foreach ($VARIABLES['PHOTO']['COTTAGE'] as $photo) {?>
-                                        <img src="<?=$photo['SRC']?>" alt="<?=$photo['ALT']?>" class="el__photo-thumb-slide">
-                                    <?}?>
+                                    <? foreach ($VARIABLES['PHOTO']['COTTAGE'] as $photo) { ?>
+                                        <img src="<?= $photo['SRC'] ?>" alt="<?= $photo['ALT'] ?>"
+                                             class="el__photo-thumb-slide">
+                                    <? } ?>
                                 </div>
                             <? } ?>
                         </div>
@@ -470,8 +544,8 @@ global $VARIABLES;
                             Машиноместо
                         </div>
                     </div>
-                    <div class="el__price" data-index="Цена: 1000 руб/сутки с чел.">
-                        Цена: 1000 руб/сутки с чел.
+                    <div class="el__price" data-index="Цена: 600-800 руб/чел/сут">
+                        Цена: 600-800 руб/чел/сут
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
@@ -522,7 +596,14 @@ global $VARIABLES;
                                             <div class="el__textarea">
                                                 <textarea name="comment" placeholder="Откуда-куда"></textarea>
                                             </div>
-
+                                            <div class="el__agreement">
+                                                Нажимая на&nbsp;кнопку &laquo;Оправить заявку&raquo;
+                                                вы&nbsp;даете свое согласие на&nbsp;обработку персональных данных
+                                                в&nbsp;соответствии с&nbsp;
+                                                <a href="/agreement.php" target="_blank">Соглашением</a> и&nbsp;с&nbsp;
+                                                <a href="/privacy.php" target="_blank">Политикой в&nbsp;отношении обработки и&nbsp;обеспечения
+                                                    защиты персональных данных.</a>
+                                            </div>
                                             <button type="submit" class="el__button">Отправить заявку</button>
                                             <div class="error-message"></div>
                                         </form>
@@ -589,7 +670,6 @@ global $VARIABLES;
 <!---->
 
 
-
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script src="js/vendor.min.js"></script>
 <script src="js/slick.min.js"></script>
@@ -599,17 +679,22 @@ global $VARIABLES;
 
 
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(51714014, "init", {
-        id:51714014,
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
+        id: 51714014,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
     });
 </script>
 <noscript>

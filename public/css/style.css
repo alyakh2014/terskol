@@ -60,10 +60,17 @@ a {
   .room-status.no {
     color: #ff081f; }
 
-h1 {
+.h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold; }
+
+h1, .h1 {
   font-weight: 800;
   width: 33.333333%;
   text-align: center; }
+  h1 a, .h1 a {
+    text-decoration: none; }
 
 .call-us {
   text-align: right;
@@ -72,6 +79,19 @@ h1 {
     font-weight: 800;
     font-size: 1.4em;
     text-decoration: none; }
+
+.privacy {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px 20px;
+  min-height: 632px;
+  max-width: 1400px;
+  margin: auto; }
+  .privacy p {
+    margin-bottom: 15px;
+    line-height: 1.4; }
+  .privacy h3 {
+    margin-bottom: 15px; }
 
 .cont {
   position: relative;
@@ -203,10 +223,18 @@ h1 {
     padding: 10px;
     background: rgba(31, 31, 31, 0.75);
     margin-bottom: 10px; }
+  .el__adress {
+    list-style: none;
+    padding-left: 10px; }
+  .el__map {
+    min-height: 400px; }
   .el__price-block {
     font-size: 18px;
     font-weight: 800;
     margin-bottom: 10px; }
+  .el__price-comment {
+    font-weight: 300;
+    font-size: 14px; }
   .el__order-block {
     padding: 10px;
     background: rgba(31, 31, 31, 0.75); }
@@ -629,6 +657,9 @@ h1 {
       .el__textarea textarea:focus {
         outline: none;
         border-color: #ffffff; }
+  .el__agreement {
+    font-size: 12px;
+    margin-bottom: 10px; }
   .el__button {
     padding: 10px;
     background: white;

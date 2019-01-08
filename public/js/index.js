@@ -2,6 +2,7 @@ var $cont = document.querySelector('.cont');
 var $body = document.querySelector('body');
 var $elsArr = [].slice.call(document.querySelectorAll('.el'));
 var $closeBtnsArr = [].slice.call(document.querySelectorAll('.el__close-btn'));
+var mapInitialized = false;
 
 setTimeout(function () {
     $cont.classList.remove('s--inactive');
@@ -16,6 +17,22 @@ $elsArr.forEach(function ($el) {
         setTimeout(function () {
             initSlider($el);
         }, 2000);// Инициализация строго после полного разворота окна
+        if (this.classList.contains('has-map') && !mapInitialized){
+            setTimeout(function () {
+                // Создание карты.
+                var myMap = new ymaps.Map("yandexMap", {
+                    // Координаты центра карты.
+                    // Порядок по умолчанию: «широта, долгота».
+                    // Чтобы не определять координаты центра карты вручную,
+                    // воспользуйтесь инструментом Определение координат.
+                    center: [43.256677, 42.513495],
+                    // Уровень масштабирования. Допустимые значения:
+                    // от 0 (весь мир) до 19.
+                    zoom: 18
+                });
+                mapInitialized = true;
+            }, 2000);
+        }
     });
 });
 
@@ -164,7 +181,4 @@ $(function () {
 
         });
     });
-
-
-
 });
