@@ -75,9 +75,9 @@ global $VARIABLES;
                                 <b>Адреса объектов Terskol Home</b><br/>
                                 Россия, КБР, с Терксол
                                 <ul class="el__adress">
-                                    <li> - Апартаменты: ул. Заречная дом 5</li>
-                                    <li> - Хостел: ул. Заречная дом 8</li>
-                                    <li> - Коттедж "Сапира": ул Заречная дом 8а</li>
+                                    <li> - Апартаменты: ул. Эльбрусская дом 5</li>
+                                    <li> - Хостел: ул. Эльбрусская дом 8</li>
+                                    <li> - Коттедж "Сапира": ул Эльбрусская дом 8а</li>
                                 </ul>
                             </div>
                             <div class="el__description">
@@ -120,10 +120,13 @@ global $VARIABLES;
                     <div class="el__content">
                         <div class="el__text">Апартаменты</div>
                         <div class="el__content-left">
-                            <div class="el__description">Приглашаем вас в уютные апартаменты Terskol Home. В каждой
-                                комнате
-                                отдельный санузел с душем и туалетом, телевизор. Обеденная зона, кухня, лыжехранилище.
-                                Общая вместимость&nbsp;-&nbsp;16&nbsp;человек.
+                            <div class="el__description">Приглашаем вас в уютные трёх-этажные апартаменты Terskol Home,
+                                состоящие из пяти жилых комнат, обеденной зоны с панорамными окнами, кухни,
+                                лыжехранилища и сушилки-прачечной. В каждой комнате имеется отдельный санузел с душем и
+                                туалетом. Телевизор 20 общероссийских каналов и высокоскоростной WI-FI<br/>
+                                Скидки на проживание детям. Если ребёнок дошкольник и не занимает отдельную кровать, то
+                                его проживание бесплатно.<br/>
+                                Общая вместимость -&nbsp;15&nbsp;человек.
                             </div>
                             <div class="el__price-block">Цена: 1000-1500 руб/чел/сут
                                 <div class="el__price-comment">Цена зависит от числа проживающих и длительности
@@ -248,6 +251,9 @@ global $VARIABLES;
                         <div class="el__advantage" data-index="Телевизор">
                             Телевизор
                         </div>
+                        <div class="el__advantage" data-index="WI-FI">
+                            WI-FI
+                        </div>
                     </div>
                     <div class="el__price" data-index="Цена: 1000-1500 руб/чел/сут">
                         Цена: 1000-1500 руб/чел/сут
@@ -276,10 +282,12 @@ global $VARIABLES;
                             <div class="el__description">
                                 Уютный хостел Terskol Home с большой кухней и всем необходимым. Две четырехместные и
                                 одна трехместная комнаты,
-                                душ, туалет, стиральная машина. WI-FI.
-                                Общая вместимость - 11 человек.
+                                душ, туалет, стиральная машина. WI-FI.<br/>
+                                Скидки на проживание детям. Если ребёнок дошкольник и не занимает отдельную кровать, то
+                                его проживание бесплатно.<br/>
+                                Общая вместимость -&nbsp;11&nbsp;человек.
                             </div>
-                            <div class="el__price-block">Цена: 500-600 руб/чел/сут
+                            <div class="el__price-block">Цена: 400-500 руб/чел/сут
                                 <div class="el__price-comment">Цена зависит от числа проживающих и длительности
                                     пребывания
                                 </div>
@@ -376,10 +384,10 @@ global $VARIABLES;
                 </div>
             </div>
             <div class="el__index">
-                <div class="el__index-back">с двумя номерами</div>
+                <div class="el__index-back">с тремя номерами</div>
                 <div class="el__index-front">
-                    <div class="el__index-overlay" data-index="с двумя номерами">
-                        с двумя номерами
+                    <div class="el__index-overlay" data-index="с тремя номерами">
+                        с тремя номерами
                     </div>
                     <div class="el__adv-block">
                         <div class="el__advantage" data-index="Душ, туалет">
@@ -394,9 +402,12 @@ global $VARIABLES;
                         <div class="el__advantage" data-index="Машиноместо">
                             Машиноместо
                         </div>
+                        <div class="el__advantage" data-index="WI-FI">
+                            WI-FI
+                        </div>
                     </div>
-                    <div class="el__price" data-index="Цена: 500-600 руб/чел/сут">
-                        Цена: 500-600 руб/чел/сут
+                    <div class="el__price" data-index="Цена: 400-500 руб/чел/сут">
+                        Цена: 400-500 руб/чел/сут
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
@@ -422,8 +433,10 @@ global $VARIABLES;
                             <div class="el__description">
                                 Коттедж "Сапира" - уютный домик с настоящей историей, ставший
                                 местом постоянного отдыха для многих туристов.
-                                Две кухни на втором и третьем этажах, душевые кабинки, туалеты, прачечная, WI-FI.
-                                Общая вместимость - 21-25 человек.
+                                Две кухни на втором и третьем этажах, душевые кабинки, туалеты, прачечная, WI-FI.<br/>
+                                Скидки на проживание детям. Если ребёнок дошкольник и не занимает отдельную кровать, то
+                                его проживание бесплатно.<br/>
+                                Общая вместимость -&nbsp;21-25&nbsp;человек.
                             </div>
                             <div class="el__price-block">Цена: 600-800 руб/чел/сут
                                 <div class="el__price-comment">Цена зависит от числа проживающих и длительности
@@ -543,6 +556,9 @@ global $VARIABLES;
                         <div class="el__advantage" data-index="Машиноместо">
                             Машиноместо
                         </div>
+                        <div class="el__advantage" data-index="WI-FI">
+                            WI-FI
+                        </div>
                     </div>
                     <div class="el__price" data-index="Цена: 600-800 руб/чел/сут">
                         Цена: 600-800 руб/чел/сут
@@ -571,7 +587,7 @@ global $VARIABLES;
                             <div class="el__description">
                                 Трансфер от/до аэропорта или из другой точки.
                             </div>
-                            <div class="el__price-block">Цена: от 4000 руб.</div>
+                            <div class="el__price-block">Цена: в зависимости от маршрута</div>
                             <div class="el__order-block">
                                 <div class="el__order-header">Заказать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
@@ -644,8 +660,8 @@ global $VARIABLES;
                         от/до аэропопрта
                     </div>
 
-                    <div class="el__price" data-index="Цена: от 4000 руб">
-                        Цена: от 4000 руб
+                    <div class="el__price" data-index="Цена: в зависимости от маршрута">
+                        Цена: в зависимости от маршрута
                     </div>
                     <div class="el__more" data-index="Подробнее">
                         Подробнее
