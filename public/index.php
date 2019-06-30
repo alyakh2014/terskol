@@ -23,8 +23,11 @@ global $VARIABLES;
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no, maximum-scale=1">
     <meta name="yandex-verification" content="c64747aabd295094"/>
 
-    <title>Terskol Home</title>
-
+    <title>Гостиница в Терсколе, аренда жилья недорого, снять хостел по низкой цене</title>
+    <meta name="keywords" content="Жилье в Терсколе недорого: апартаменты, хостел, коттедж эконом класса.
+        Жилье эконом класса в Приэльбрусье"/>
+    <meta name="description" content="Terskol Home - недорогое уютное жилье в Терсколе: апартаменты, хостел, коттедж.
+        Жилье эконом класса в Приэльбрусье"/>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slick-theme.css"
@@ -148,6 +151,7 @@ global $VARIABLES;
                                               data-id="apartment">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value="Апартаменты"/>
+                                            <input type="hidden" name="confirm" value=""/>
 
                                             <div class="el__input is-fio is-required">
                                                 <input type="text" name="fio" placeholder="Ваше имя"/>
@@ -306,6 +310,7 @@ global $VARIABLES;
                                         <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="hostel">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value="Хостел"/>
+                                            <input type="hidden" name="confirm" value=""/>
 
                                             <div class="el__input is-fio is-required">
                                                 <input type="text" name="fio" placeholder="Ваше имя"/>
@@ -458,6 +463,7 @@ global $VARIABLES;
                                               data-id="cottage">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value='Коттедж "Сапиира"'/>
+                                            <input type="hidden" name="confirm" value=""/>
 
                                             <div class="el__input is-fio is-required">
                                                 <input type="text" name="fio" placeholder="Ваше имя"/>
@@ -602,6 +608,7 @@ global $VARIABLES;
                                         <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="taxi">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value='Такси'/>
+                                            <input type="hidden" name="confirm" value=""/>
 
                                             <div class="el__input is-fio is-required">
                                                 <input type="text" name="fio" placeholder="Ваше имя"/>

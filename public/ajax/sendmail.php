@@ -5,6 +5,10 @@
  * Date: 23.12.2018
  * Time: 0:35
  */
+// Фильтр от роботов. Данное поле могут заполнить только они
+if ($_REQUEST['confirm']) {
+    return;
+}
 $errorArray = array();
 if (!$_REQUEST['fio']) {
     $errorArray['no-fio'] = true;
