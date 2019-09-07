@@ -140,13 +140,13 @@ global $VARIABLES;
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
                                 <div class="el__tab-navs">
-                                    <div class="el__tab-nav" data-index="form">Форма</div>
+                                    <?/*<div class="el__tab-nav" data-index="form">Форма</div>*/?>
                                     <div class="el__tab-nav is-active" data-index="call">Звонок</div>
                                     <div class="el__tab-nav" data-index="whatsapp">WhatsApp</div>
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab is-form" data-index="form">
+                                    <?/*<div class="el__order-tab is-form" data-index="form">
                                         <form action="ajax/sendmail.php" class="mail-form js-validate"
                                               data-id="apartment">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
@@ -184,7 +184,7 @@ global $VARIABLES;
                                         <div class="success-message">
                                             Ваша заявка успешно отправлена. <br/> В ближайшее время с вами свяжутся
                                         </div>
-                                    </div>
+                                    </div>*/?>
                                     <div class="el__order-tab is-active" data-index="call">
                                         <a href="tel:+79287075517">
                                             <div class="el__phone">+ 7 928 707 55 17</div>
@@ -300,13 +300,13 @@ global $VARIABLES;
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
                                 <div class="el__tab-navs">
-                                    <div class="el__tab-nav" data-index="form">Форма</div>
+                                    <?/*<div class="el__tab-nav" data-index="form">Форма</div>*/?>
                                     <div class="el__tab-nav is-active" data-index="call">Звонок</div>
                                     <div class="el__tab-nav" data-index="whatsapp">WhatsApp</div>
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab is-form" data-index="form">
+                                    <?/*<div class="el__order-tab is-form" data-index="form">
                                         <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="hostel">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value="Хостел"/>
@@ -343,7 +343,7 @@ global $VARIABLES;
                                         <div class="success-message">
                                             Ваша заявка успешно отправлена. <br/> В ближайшее время с вами свяжутся
                                         </div>
-                                    </div>
+                                    </div>*/?>
                                     <div class="el__order-tab is-active" data-index="call">
                                         <a href="tel:+79287075517">
                                             <div class="el__phone">+ 7 928 707 55 17</div>
@@ -452,13 +452,13 @@ global $VARIABLES;
                                 <div class="el__order-header">Забронировать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
                                 <div class="el__tab-navs">
-                                    <div class="el__tab-nav" data-index="form">Форма</div>
+                                    <?/*<div class="el__tab-nav" data-index="form">Форма</div>*/?>
                                     <div class="el__tab-nav is-active" data-index="call">Звонок</div>
                                     <div class="el__tab-nav" data-index="whatsapp">WhatsApp</div>
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab is-form" data-index="form">
+                                    <?/*<div class="el__order-tab is-form" data-index="form">
                                         <form action="ajax/sendmail.php" class="mail-form js-validate"
                                               data-id="cottage">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
@@ -498,7 +498,7 @@ global $VARIABLES;
                                         <div class="success-message">
                                             Ваша заявка успешно отправлена. <br/> В ближайшее время с вами свяжутся
                                         </div>
-                                    </div>
+                                    </div>*/?>
                                     <div class="el__order-tab is-active" data-index="call">
                                         <a href="tel:+79287075517">
                                             <div class="el__phone">+ 7 928 707 55 17</div>
@@ -598,13 +598,13 @@ global $VARIABLES;
                                 <div class="el__order-header">Заказать</div>
                                 <div class="el__order-choose">Выберите удобный способ связи</div>
                                 <div class="el__tab-navs">
-                                    <div class="el__tab-nav" data-index="form">Форма</div>
+                                    <?/*<div class="el__tab-nav" data-index="form">Форма</div>*/?>
                                     <div class="el__tab-nav is-active" data-index="call">Звонок</div>
                                     <div class="el__tab-nav" data-index="whatsapp">WhatsApp</div>
                                     <div class="el__tab-nav" data-index="mail">E-mail</div>
                                 </div>
                                 <div class="el__order-tabs">
-                                    <div class="el__order-tab is-form" data-index="form">
+                                    <?/*<div class="el__order-tab is-form" data-index="form">
                                         <form action="ajax/sendmail.php" class="mail-form js-validate" data-id="taxi">
                                             <div class="el__order-comment">Заполните форму обратной связи</div>
                                             <input type="hidden" name="id" value='Такси'/>
@@ -633,7 +633,7 @@ global $VARIABLES;
                                         <div class="success-message">
                                             Ваша заявка успешно отправлена. <br/> В ближайшее время с вами свяжутся
                                         </div>
-                                    </div>
+                                    </div>*/?>
                                     <div class="el__order-tab is-active" data-index="call">
                                         <a href="tel:+79287075517">
                                             <div class="el__phone">+ 7 928 707 55 17</div>
